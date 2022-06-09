@@ -40,8 +40,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: '**/*.csproj'
     feedsToUse: 'select'
-    vstsFeed: 'my-vsts-feed' # A series of numbers and letters
+    vstsFeed: 'pipeline testing' # A series of numbers and letters
+    includeNuGetOrg: true
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet build'
