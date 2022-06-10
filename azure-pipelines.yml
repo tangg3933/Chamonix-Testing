@@ -100,7 +100,7 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: 'test'
-    projects: '$(solution)'
+    # projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration)'
 
 # - task: DotNetCoreCLI@2
