@@ -80,7 +80,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   solution: '**/testCode.sln'
-  project: '**/pipeline testing/pipeline testing.csproj'
+  # project: '**/pipeline testing/pipeline testing.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
