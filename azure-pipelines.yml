@@ -79,7 +79,7 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  # solution: '**/pipeline testing'
+  solution: 'pipeline testing'
   # project: '**/pipeline testing/pipeline testing.csproj'
 
 steps:
@@ -100,7 +100,7 @@ steps:
   displayName: 'Run tests'
   inputs:
     command: 'test'
-    # projects: '$(solution)'
+    projects: '$(solution)'
     arguments: '--configuration $(BuildConfiguration)'
 
 # - task: DotNetCoreCLI@2
