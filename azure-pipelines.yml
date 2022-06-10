@@ -79,8 +79,8 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  solution: '**/pipeline testing'
-  project: '**/pipeline testing/pipeline testing.csproj'
+  # solution: '**/pipeline testing'
+  # project: '**/pipeline testing/pipeline testing.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
