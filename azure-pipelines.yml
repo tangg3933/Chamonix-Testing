@@ -79,7 +79,8 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  solution: 'pipeline testing'
+  workingDirectory: 'pipeline testing'
+  # solution: 'pipeline testing'
   # project: '**/pipeline testing/pipeline testing.csproj'
 
 steps:
@@ -92,7 +93,7 @@ steps:
   displayName: 'NuGet restore packages'
   inputs:
     command: 'restore'
-    restoreSolution: '$(solution)'
+    restoreSolution: '$(workingDirectory)'
     feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
