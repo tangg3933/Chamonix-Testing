@@ -3,18 +3,18 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
 
-trigger:
-- main
+# trigger:
+# - main
 
-pool:
-  vmImage: 'windows-latest'
+# pool:
+#   vmImage: 'window-latest'
 
-variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+# variables:
+# #   solution: '**/*.sln'
+#     buildPlatform: 'Any CPU'
+#   buildConfiguration: 'Release'
 
-steps:
+# steps:
 # - task: NuGetToolInstaller@1
 
 # - task: NuGetCommand@2
@@ -32,35 +32,91 @@ steps:
 #     platform: '$(buildPlatform)'
 #     configuration: '$(buildConfiguration)'
 
-- task: UseDotNet@2
-  inputs:
-    version: '6.0.x'
-    includePreviewVersions: true # Required for preview versions
+# - task: UseDotNet@2
+#   inputs:
+#     version: '6.0.x'
+#     includePreviewVersions: true # Required for preview versions
 
-- task: DotNetCoreCLI@2
+# - task: DotNetCoreCLI@2
+#   inputs:
+#     command: 'restore'
+#     projects: '**/*.csproj'
+#     feedsToUse: 'select'
+#     vstsFeed: 'pipeline testing' # A series of numbers and letters
+#     includeNuGetOrg: true
+
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet build'
+#   inputs:
+#     command: 'build'
+#     configuration: $(buildConfiguration)
+  
+# - task: DotNetCoreCLI@2
+#   displayName: 'dotnet test'
+#   inputs:
+#     command: 'test'
+#     arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+#     publishTestResults: true
+#     projects: 'pipeline testing' # update with your test project directory
+  
+# - task: PublishCodeCoverageResults@1
+#   displayName: 'Publish code coverage report'
+#   inputs:
+#     codeCoverageTool: 'Cobertura'
+#     summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+# .NET Desktop
+# Build and run tests for .NET Desktop or Windows classic desktop solutions.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/apps/windows/dot-net
+
+trigger:
+- none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  solution: '**/testCode.sln'
+  project: '**/testCode.csproj'
+
+steps:
+- task: NuGetToolInstaller@1
+  name: 'NuGetToolInstaller'
+  displayName: 'NuGet tool installer'
+
+- task: NuGetCommand@2
+  name: 'NuGetRestore'
+  displayName: 'NuGet restore packages'
   inputs:
     command: 'restore'
-    projects: '**/*.csproj'
+    restoreSolution: '$(solution)'
     feedsToUse: 'select'
-    vstsFeed: 'pipeline testing' # A series of numbers and letters
-    includeNuGetOrg: true
 
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
-  inputs:
-    command: 'build'
-    configuration: $(buildConfiguration)
-  
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
+  name: 'Tests'
+  displayName: 'Run tests'
   inputs:
     command: 'test'
-    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
-    publishTestResults: true
-    projects: 'pipeline testing' # update with your test project directory
-  
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
+    projects: '$(solution)'
+    arguments: '--configuration $(BuildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  name: 'Publish'
+  displayName: 'Publish'
   inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+    command: 'publish'
+    publishWebProjects: false
+    projects: '$(project)'
+    arguments: '--configuration $(BuildConfiguration) --output$(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
+
+- task: PublishBuildArtifacts@1
+  name: 'PublishBuildArtifacts'
+  displayName: 'Publish build artifacts'
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'AzureTestProject'
+    publishLocation: 'Container'
