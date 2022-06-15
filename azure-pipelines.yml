@@ -79,7 +79,7 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  workingDirectory: 'pipeline testing'
+  workingDirectory: 'Program'
   # solution: 'pipeline testing'
   # project: '**/pipeline testing/pipeline testing.csproj'
 
