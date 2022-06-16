@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\.github",
-    "\\pipeline testing",
-    "\\StringLibrary"
+    "\\pipeline testing"
   ],
-  "SelectedNode": "\\StringLibrary\\Class1.cs",
   "PreviewInSolutionExplorer": false
 }
