@@ -12,7 +12,7 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  workingDirectory: 'Program'
+  workingDirectory: 'Chamonix-Testing/Program/'
   solution: '**/*.sln'
   projects: '**/*.csproj'
 
