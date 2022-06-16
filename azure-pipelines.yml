@@ -12,7 +12,7 @@ pool:
 variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  solution: 'Program.sln'
+  solution: 'SeleniumTest.sln'
   projects: '**/*.csproj'
 
 steps:
