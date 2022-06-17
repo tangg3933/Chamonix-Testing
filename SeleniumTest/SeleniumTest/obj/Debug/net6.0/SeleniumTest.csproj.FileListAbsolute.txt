@@ -98,3 +98,4 @@ C:\Users\Gordon\source\repos\Chamonix-Testing\SeleniumTest\SeleniumTest\obj\Debu
 C:\Users\Gordon\source\repos\Chamonix-Testing\SeleniumTest\SeleniumTest\obj\Debug\net6.0\SeleniumTest.pdb
 C:\Users\Gordon\source\repos\Chamonix-Testing\SeleniumTest\SeleniumTest\obj\Debug\net6.0\SeleniumTest.genruntimeconfig.cache
 C:\Users\Gordon\source\repos\Chamonix-Testing\SeleniumTest\SeleniumTest\obj\Debug\net6.0\ref\SeleniumTest.dll
+C:\Users\Gordon\source\repos\Chamonix-Testing\SeleniumTest\SeleniumTest\bin\Debug\net6.0\Assert.dll

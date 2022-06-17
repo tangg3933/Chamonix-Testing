@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Assert/4.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/Assert.dll": {}
+        },
+        "runtime": {
+          "lib/Assert.dll": {}
+        }
+      },
       "coverlet.collector/3.1.2": {
         "type": "package",
         "build": {
@@ -383,6 +392,20 @@
     }
   },
   "libraries": {
+    "Assert/4.2.1": {
+      "sha512": "CVOTQD+tgr87FoIl85WdsbU6WvOLwu8U/4e19MCBMy47oWENuA0iM6Ts0NLloBfi7Bytp1YgWNAty3aDjHWoww==",
+      "type": "package",
+      "path": "assert/4.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "assert.4.2.1.nupkg.sha512",
+        "assert.nuspec",
+        "lib/Assert.dll",
+        "lib/Assert.pdb",
+        "lib/Assert.xml"
+      ]
+    },
     "coverlet.collector/3.1.2": {
       "sha512": "wuLDIDKD5XMt0A7lE31JPenT7QQwZPFkP5rRpdJeblyXZ9MGLI8rYjvm5fvAKln+2/X+4IxxQDxBtwdrqKNLZw==",
       "type": "package",
@@ -1319,6 +1342,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Assert >= 4.2.1",
       "Microsoft.NET.Test.Sdk >= 17.1.0",
       "NUnit >= 3.13.3",
       "NUnit.Analyzers >= 3.3.0",
@@ -1372,6 +1396,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Assert": {
+            "target": "Package",
+            "version": "[4.2.1, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.1.0, )"
@@ -1419,5 +1447,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Assert 4.2.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Assert",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

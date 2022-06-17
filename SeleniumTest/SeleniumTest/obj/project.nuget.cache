@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "vCnGPZ+3oJABDAwBEy4/6z3d9rcP2bIVyG0xwpQBt9k8nq5/liaeV1j11wS9NkGCqzWqqWxgbx4nKdfHaXrRmw==",
+  "dgSpecHash": "mwOzRQXhxGi5sQHEEc3tPxarUqjh7IhIkIg+uTvQQWNMbJOLziweAwdtAGPgoQPLjU9/lGBaFamUnWx4UvHpoQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gordon\\source\\repos\\Chamonix-Testing\\SeleniumTest\\SeleniumTest\\SeleniumTest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Gordon\\.nuget\\packages\\assert\\4.2.1\\assert.4.2.1.nupkg.sha512",
     "C:\\Users\\Gordon\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Gordon\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
     "C:\\Users\\Gordon\\.nuget\\packages\\microsoft.net.test.sdk\\17.1.0\\microsoft.net.test.sdk.17.1.0.nupkg.sha512",
@@ -20,5 +21,16 @@
     "C:\\Users\\Gordon\\.nuget\\packages\\selenium.webdriver\\4.2.0\\selenium.webdriver.4.2.0.nupkg.sha512",
     "C:\\Users\\Gordon\\.nuget\\packages\\system.reflection.metadata\\1.6.0\\system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Assert 4.2.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Assert",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
