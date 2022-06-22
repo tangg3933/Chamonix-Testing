@@ -13,7 +13,7 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   solution: 'SeleniumTest.sln'
-  projects: 'SeleniumTest/SeleniumTest/SeleniumTest.csproj'
+  projects: '**/*.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
@@ -27,6 +27,8 @@ steps:
     command: 'restore'
 
 - task: DotNetCoreCLI@2
+  name: 'Build'
+  displayName: 'Run build'
   inputs:
     command: 'build'
     projects: '$(projects)'
