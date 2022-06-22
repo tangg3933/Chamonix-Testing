@@ -13,7 +13,6 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   solution: 'SeleniumTest.sln'
-  projects: 'SeleniumTest.csproj'
 
 steps:
 - task: NuGetToolInstaller@1
